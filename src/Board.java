@@ -38,7 +38,7 @@ public class Board {
         }
         return null;
     }
-    public void setStartingPosition()
+    public void setStartingPosition()//כאן צריך לסדר את התנאים מחדש, אין צורך שזה יהיה כל כך מסורבל
     {
         int sum = 0;
         for (int index = 0; index < this.board.length; index ++)
