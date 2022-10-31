@@ -1,41 +1,37 @@
 import java.util.Arrays;
 
 public class Game {
-    private Board [] positions;
+    private Board[] positions;
 
-    public Game(){
-        this.positions = new Board [1];
+    public Game() {
+        this.positions = new Board[1];
         this.positions[0] = new Board();
         this.positions[0].setStartingPosition();
     }
 
-    public void setPositions(Board board)
-    {
+    public void setPositions(Board board) {
         positions = new Board[this.positions.length + 1];
-        for (int index = 0; index < this.positions.length; index ++)
-        {
+        for (int index = 0; index < this.positions.length; index++) {
             positions[index] = this.positions[index];
         }
         positions[positions.length - 1] = board;
         this.positions = positions;
     }
 
-    public Board [] getPositions()
-    {
+    public Board[] getPositions() {
         return this.positions;
     }
 
-    public boolean checkMovesRepetition()
-    {
+    public boolean checkMovesRepetition() {
         int sum = 0;
-        for(int index = 0; index < this.positions.length; index ++)
-        {
+        for (int index = 0; index < this.positions.length; index++) {
             if (positions[index] == positions[positions.length - 1])
-                sum ++;
+                sum++;
         }
         return sum >= 3;
     }
-    public int turn(){
+
+    public int turn() {
         return (this.positions.length - 1) % 2;
     }
 }
