@@ -73,4 +73,34 @@ public class Board {
     public Piece[] getPieces() {
         return pieces;
     }
+
+    public String stringBoard() {
+        String sum = "";
+
+        for (int i = 0; i < 8; i++) {
+            sum += "| | | | | | | | |\n";
+        }
+
+        String[] sumlst = sum.split("\n");
+
+        for (int i = 0; i < 32; i++) {
+            Piece piece = getPieces()[i];
+            if (piece != null) {
+                Square square = piece.getSquare();
+                int x = square.getX();
+                int y = square.getY();
+
+                String before = sumlst[x].substring(0, y * 2 + 1);
+                String after = sumlst[x].substring((y + 1) * 2);
+                sumlst[x] = before + piece.getNum() + after;
+            }
+        }
+
+        sum = "+-+-+-+-+-+-+-+-+\n";
+        for (int i = 0; i < 8; i++) {
+            sum += sumlst[i] + "\n+-+-+-+-+-+-+-+-+\n";
+        }
+
+        return ("Player1:\n" + sum + "Player2: ");
+    }
 }

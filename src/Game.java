@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Game {
     private Board[] positions;
 
